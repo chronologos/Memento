@@ -16,12 +16,16 @@ module.exports = {
 		console.log(req.file);
 		req.file('photo').upload({ dirname: '.'},function (err, files) {
 			if (err){
-			return res.serverError(err);
+				return res.serverError(err);
 			}
-			return res.json({
-				message: files.length + ' file(s) uploaded successfully!',
-				files: files
-			});
+			return res.view('homepage',{
+
+				// not working, need implementation of flash messages
+
+					message: files.length + ' file(s) uploaded successfully!',
+					files: files
+				}
+			);
 		});
 	}
 };

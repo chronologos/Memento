@@ -12,7 +12,8 @@
 module.exports = function(grunt) {
 
 	grunt.config.set('clean', {
-		dev: ['.tmp/public/**'],
+		// ,'.tmp/public/*.*'
+		dev: ['.tmp/public/fonts/**','.tmp/public/images/**','.tmp/public/js/**','.tmp/public/styles/**'],
 		build: ['www']
 	});
 

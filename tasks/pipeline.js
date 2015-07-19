@@ -35,6 +35,7 @@ var jsFilesToInject = [
   'js/bootstrap.min.js',
   'js/jquery.easing.min.js',
   'js/jquery.fittext.js',
+  'js/wow.min.js',
   'js/*.js'
 ];
 
