@@ -8,6 +8,7 @@ A [Sails](http://sailsjs.org) application. User can upload photo through website
 3. Set up database
 4. Enable SSL
 5. Fix how js and css don't work when minified and concatenated.
+
 ## Team 
 1. Ian Tay (Website, Server), 
 2. Clement Lee (iOS - app), 
