@@ -1159,7 +1159,11 @@ img {
     cursor: inherit;
     display: block;
 }
+.glyphicon-lg {
+    font-size: 2em;
+}
 .top-buffer { margin-top:20px; }
+.bot-buffer { margin-bottom:20px;}
 
 hr {
   margin-top: 20px;
