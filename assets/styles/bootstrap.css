@@ -1137,8 +1137,8 @@ img {
   border-radius: 50%;
 }
 .img-small{
-  width: 150px;
-  height: 150px;
+  width: 170px;
+  height: 170px;
 }
 .btn-file {
     position: relative;
@@ -5743,6 +5743,9 @@ button.close {
   outline: 0;
 }
 .modal.fade .modal-dialog {
+  position:absolute;
+  top:50%;
+  left:50%;
   -webkit-transition: -webkit-transform .3s ease-out;
        -o-transition:      -o-transform .3s ease-out;
           transition:         transform .3s ease-out;
@@ -5767,7 +5770,9 @@ button.close {
   margin: 10px;
 }
 .modal-content {
-  position: relative;
+  position: absolute;
+  top:50%;
+  left:50%;
   background-color: #fff;
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
