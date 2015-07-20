@@ -8,8 +8,8 @@
 module.exports = {
 	view: function (req, res) {
 		var fs = require('fs');
-		fs.readdir(require('path').join(__dirname,'/../../.tmp/public/uploads'), function (err, files) {
-			console.log(require('path').join(__dirname,'/../../.tmp/public/uploads'));
+		// fs.readdir(require('path').join(__dirname,'/../../.tmp/public/uploads'), function (err, files) {
+		fs.readdir('http://yiyantay.me/uploads'), function (err, files) {
 			console.log(files);
 			return res.view('gallery', {galleryfiles: files})
 		});
