@@ -8,8 +8,9 @@
 module.exports = {
 	view: function (req, res) {
 		var fs = require('fs');
-		fs.readdir(require('path').join(__dirname,'/../../.tmp/public/uploads'), function (err, files) {
-			console.log(require('path').join(__dirname,'/../../.tmp/public/uploads'));
+		var this_location = req.params.all().location;
+		fs.readdir(require('path').join(__dirname,'/../../.tmp/public/uploads/',this_location), function (err, files) {
+			console.log(require('path').join(__dirname,'/../../.tmp/public/uploads',this_location));
 			console.log(files);
 			return res.view('gallery', {galleryfiles: files})
 		});
@@ -17,8 +18,9 @@ module.exports = {
 
 	viewalt: function (req, res) {
 		var fs = require('fs');
-		fs.readdir(require('path').join(__dirname,'/../../.tmp/public/uploads'), function (err, files) {
-			console.log(require('path').join(__dirname,'/../../.tmp/public/uploads'));
+		var this_location = req.params.all().location;
+		fs.readdir(require('path').join(__dirname,'/../../.tmp/public/uploads/',this_location), function (err, files) {
+			console.log(require('path').join(__dirname,'/../../.tmp/public/uploads',this_location));
 			console.log(files);
 			res.locals.layout = 'layout2'; //change layout so that it works on iOS
 			return res.view('gallery', {galleryfiles: files})
