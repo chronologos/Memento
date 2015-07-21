@@ -12,7 +12,7 @@ module.exports = {
 		fs.readdir(require('path').join(__dirname,'/../../.tmp/public/uploads/',this_location), function (err, files) {
 			console.log(require('path').join(__dirname,'/../../.tmp/public/uploads',this_location));
 			console.log(files);
-			return res.view('gallery', {galleryfiles: files})
+			return res.view('gallery', {galleryfiles: files, location=this_location})
 		});
 	},
 
@@ -23,7 +23,7 @@ module.exports = {
 			console.log(require('path').join(__dirname,'/../../.tmp/public/uploads',this_location));
 			console.log(files);
 			res.locals.layout = 'layout2'; //change layout so that it works on iOS
-			return res.view('gallery', {galleryfiles: files})
+			return res.view('gallery', {galleryfiles: files, location=this_location})
 		});
 	}
 }
