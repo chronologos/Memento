@@ -1,74 +1,75 @@
 <header>
-  <div class="header-content">
-    <div class="header-content-inner">
-      <h1>Remembering uniquely Singaporean experiences</h1>
-      <hr>
-      <p>Memento leverages Bluetooth LE Beacons + your smartphone's internet connection to let you leave your memories at various heritage sites across Singapore.</p>
-      <a href="#upload" class="btn btn-primary btn-xl page-scroll wow bounceIn">Use it now!</a>
-    </div>
-  </div>
+	<div class="header-content">
+		<div class="header-content-inner">
+			<h1>Remembering uniquely Singaporean experiences</h1>
+			<hr>
+			<p>Memento leverages Bluetooth LE Beacons + your smartphone's internet connection to let you leave your memories at various heritage sites across Singapore.</p>
+			<a href="#upload" class="btn btn-primary btn-xl page-scroll wow bounceIn">Use it now!</a>
+		</div>
+	</div>
 </header>
 
 <section id="about" class="no-padding bot-buffer bg-primary">
-  <div class="container">
-    <div class="row top-buffer">
-      <div class="text-center no-padding">
-        <h2 class="section-heading no-padding">About Memento</h2>
-        <hr class="light">
-        <div class="row">
-          <h3>For users:</h2>
-          <div class="col-md-3 text-justify col-lg-offset-3"><span class="glyphicon glyphicon-search glyphicon-lg" aria-hidden="true"></span> Hyperlocal - Photos can only be saved to our beacons when you are at the correct location.</div>
-          <div class="col-md-3"><span class="glyphicon glyphicon-globe glyphicon-lg" aria-hidden="true"></span> Superconnected - Share your moments with others on our gallery as well as ???</div>
-        </div>
-        <div class="row top-buffer bot-buffer">
-          <h3>For governments:</h2>
-          <div class="col-md-3 col-lg-offset-3"><span class="glyphicon glyphicon-magnet glyphicon-lg" aria-hidden="true"></span> Create an attraction - Make our heritage spots lively!</div>
-          <div class="col-md-3"><span class="glyphicon glyphicon-italic glyphicon-lg" aria-hidden="true"></span> Contextual - Provide additional information for different areas of attractions.</div>
-        </div>
-      </div>
-    </div>
-</section>
+	<div class="container">
+		<div class="row top-buffer">
+			<div class="text-center no-padding">
+				<h2 class="section-heading no-padding">About Memento</h2>
+				<hr class="light">
+				<div class="row">
+					<h3>For users:</h2>
+					<div class="col-md-3 text-justify col-lg-offset-3"><span class="glyphicon glyphicon-search glyphicon-lg" aria-hidden="true"></span> Hyperlocal - Photos can only be saved to our beacons when you are at the correct location.</div>
+					<div class="col-md-3"><span class="glyphicon glyphicon-globe glyphicon-lg" aria-hidden="true"></span> Superconnected - Share your moments with others on our gallery as well as ???</div>
+				</div>
+				<div class="row top-buffer bot-buffer">
+					<h3>For governments:</h2>
+					<div class="col-md-3 col-lg-offset-3"><span class="glyphicon glyphicon-magnet glyphicon-lg" aria-hidden="true"></span> Create an attraction - Make our heritage spots lively!</div>
+					<div class="col-md-3"><span class="glyphicon glyphicon-italic glyphicon-lg" aria-hidden="true"></span> Contextual - Provide additional information for different areas of attractions.</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<section id="upload">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <hr class="primary">
-      </div>
-    </div>
-  </div>
-  <div class="container">
-      <div class="text-center">
-        <div class="service-box">
-          <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
-          <h3>Upload your photos</h3>
-          <form method="post" action="/upload/upld" enctype="multipart/form-data">
-            <span class="btn btn-default btn-file wow bounceIn top-buffer">
-              Browse <input type="file" name="photo">
-            </span>
-              <input type="submit" class="btn btn-primary wow bounceIn top-buffer" value="Upload">
-          </form>
-        </div>
-      </div>
-    </div>
-</section>
+	<section id="upload">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<hr class="primary">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="text-center">
+				<div class="service-box">
+					<i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
+					<h3>Upload your photos</h3>
+					<form method="post" action="/upload/upld" enctype="multipart/form-data">
+						<span class="btn btn-default btn-file wow bounceIn top-buffer">
+							<input type="hidden" name="location" value="istana" />
+							Browse <input type="file" name="photo">
+						</span>
+						<input type="submit" value="Submit" class="btn btn-primary wow bounceIn top-buffer">
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
 
 
 
 
-<script src="/js/jquery.js"></script>
-<script type="text/javascript">
+	<script src="/js/jquery.js"></script>
+	<script type="text/javascript">
 $(document).on('change', '.btn-file :file', function() {
-    var input = $(this),
-        numFiles = input.get(0).files ? input.get(0).files.length : 1,
-        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-    input.trigger('fileselect', [numFiles, label]);
-});
+		var input = $(this),
+		numFiles = input.get(0).files ? input.get(0).files.length : 1,
+		label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [numFiles, label]);
+		});
 $(document).ready( function() {
-    $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
-        alert(label);
-        console.log(numFiles);
-        console.log(label);
-    });
-});
-</script>
+		$('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+			alert(label);
+			console.log(numFiles);
+			console.log(label);
+			});
+		});
+	</script>
