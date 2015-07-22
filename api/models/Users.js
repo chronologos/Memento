@@ -6,21 +6,13 @@
  */
 
 module.exports = {
-
+	connection: 'mongodbserver',
 	attributes: {
 		location: {
 			type: 'string'
 		},
 
-		time: {
-			type: 'string'
-		},
-
-		date: {
-			type: 'string'
-		},
-
-		UUID {
+		UUID: {
 			type: 'integer',
 			unique: true
 		}

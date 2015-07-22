@@ -8,7 +8,14 @@ key1=photo, value1 = file to be uploaded
 key2=location, value2 = location of photo, as a string
 
 For viewing a specific gallery do a GET request to `http://yiyantay.me/gallery/view` with key1=location, value2 = location of beacon as a string. For example `http://yiyantay.me/gallery/view?location=istana`
- 
+
+For adding a database entry do a POST request to 'http://yiyantay.me/users/create'.  
+key1=location, value1 = location, as specified previously 
+key2=UUID value2  = some kind of unique ID for a phone
+
+
+
+
 ## Todo
 1. Add flash popups for upload success. [See this tutorial](http://stackoverflow.com/questions/25350841/sails-js-flash-message-for-user-registration)
 2. Enable CSRF Protection
