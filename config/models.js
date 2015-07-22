@@ -18,7 +18,7 @@ migrate: 'safe'
   * connections (see `config/connections.js`)                                *
   *                                                                          *
   ***************************************************************************/
-  // connection: 'localDiskDb',
+connection: 'Mementodata',
 
   /***************************************************************************
   *                                                                          *
