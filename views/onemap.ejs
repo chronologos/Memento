@@ -12,9 +12,44 @@
     function clearGraphicsFromMap() {
         OneMap.clearGraphics()
     }
-
+    $(document).ready(function () {
+            var textFile = "https://dl.dropboxusercontent.com/u/1184923/historicsites.txt";
+            jQuery.get(textFile, function (textFileData) {
+                var EachLineInTextFile = textFileData.responseText.split("\n");
+                for (var i = 0, len = EachLineInTextFile.length; i < len; i++) {
+                  if (i<35){
+                    $(EachLineInTextFile[i]).insertAfter( ".col1" );
+                  } else if (i<70){
+                    $(EachLineInTextFile[i]).insertAfter( ".col2" );
+                  } else {
+                    $(EachLineInTextFile[i]).insertAfter( ".col3" );
+                  }
+                }
+            })
+        });
 </script>
 <body class="tundra">
+  <ul id="multicol-menu" class="nav pull-right">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">MultiCol Menu <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li>
+                <div class="row" style="width: 400px;">
+                    <ul class="list-unstyled col-md-4 col1">
+
+
+                    </ul>
+                    <ul class="list-unstyled col-md-4 col2">
+
+                    </ul>
+                    <ul class="list-unstyled col3">
+
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>
     <table>
         <tr>
             <td colspan="2" class="header">
