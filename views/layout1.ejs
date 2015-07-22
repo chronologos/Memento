@@ -38,7 +38,54 @@
   <link rel="stylesheet" href="/bootstrap-image-gallery.css">
   <link rel="stylesheet" href="/demo.css">
 </head>
+
 <body id="page-top">
+
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand page-scroll" href="#page-top">Memento</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gallery <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/gallery/view?location=istana">Istana</a></li>
+            <li><a href="#">Another place</a></li>
+            <li><a href="#">Some other place</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/gallery/view?location=">Everything Else</a></li>
+          </ul>
+        </li>
+
+          <li>
+            <a href="/onemap/view">OneMap</a>
+          </li>
+
+          <li>
+            <a class="page-scroll" href="/#upload">Upload</a>
+          </li>
+
+          <li>
+            <a class="page-scroll" href="/#about">About</a>
+          </li>
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
   <%- body %>
 
 
@@ -91,7 +138,6 @@
   + Use a different preprocessor, like TypeScript
 
   -->
-
   <!--SCRIPTS-->
   <script src="/js/dependencies/sails.io.js"></script>
   <script src="/js/jquery.js"></script>
