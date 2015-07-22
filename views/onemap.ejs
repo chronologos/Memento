@@ -13,7 +13,7 @@
         OneMap.clearGraphics()
     }
     $(document).ready(function () {
-            var textFile = "https://dl.dropboxusercontent.com/u/1184923/historicsites.txt";
+            var textFile = "http://yiyantay.me/historicsites.txt";
             jQuery.get(textFile, function (textFileData) {
                 var EachLineInTextFile = textFileData.responseText.split("\n");
                 for (var i = 0, len = EachLineInTextFile.length; i < len; i++) {
