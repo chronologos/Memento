@@ -56,9 +56,16 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a href="/gallery/view?location=istana">Gallery</a>
-          </li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gallery <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/gallery/view?location=istana">Istana</a></li>
+            <li><a href="#">Another place</a></li>
+            <li><a href="#">Some other place</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/gallery/view?location=">Everything Else</a></li>
+          </ul>
+        </li>
 
           <li>
             <a href="/onemap/view">OneMap</a>
@@ -104,7 +111,7 @@
   -->
 
   <!--TEMPLATES-->
-  
+
   <!--TEMPLATES END-->
 
 
