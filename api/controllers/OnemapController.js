@@ -7,7 +7,6 @@
 
 module.exports = {
 	view: function (req, res) {
-			return res.view('onemap')
-		};
-	}
+		return res.view('onemap');
+		}
 };
