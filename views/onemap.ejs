@@ -1,0 +1,46 @@
+<script type='text/JavaScript' src='http://www.onemap.sg/API/JS?accessKEY=42J5MyqRfJPhKLbyO4wyO0WJkTtkUl46ncv2vRFgqajad+lcaA1tHJKGSdkvAq5bXwu7s8StDUvPirk1qrn2psYUJNQtkUuW|mv73ZvjFcSo=&v=3.10&type=full'></script>
+<script language="JavaScript" type="text/JavaScript">
+    var OneMap = new GetOneMap('divMain', 'sm');
+
+    function Overlay() {
+        var kmlPath = document.getElementById('kmlPath').value;
+        OneMap.overlayKML(kmlPath);
+
+    }
+
+    function clearGraphicsFromMap() {
+        OneMap.clearGraphics()
+    }
+
+</script>
+<body class="tundra">
+    <table>
+        <tr>
+            <td colspan="2" class="header">
+                Overlay KML API Usage
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Specify KML :
+            </td>
+            <td>
+                <input type="text" id="kmlPath" value="http://www.onemap.sg/uploadedcsvkml/sample.kml"
+                    style="width: 398px" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right">
+                <input id="Button2" type="button" value="Overlay KML" onclick="Overlay();" />
+                <input id="btnclearGraphics" type="button" value="Clear Graphics" onclick="JavaScript:clearGraphicsFromMap()" />
+            </td>
+        </tr>
+    </table>
+    <div id="divMain" style='width: 500px; height: 500px;'>
+    </div>
+</body>
+</html>
