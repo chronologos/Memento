@@ -38,7 +38,7 @@
   </div>
   <div id="links">
     <% for(var i=0; i<galleryfiles.length; i++) {%>
-      <% if (endsWith(galleryfiles[i],".jpg")) {%>
+      <% if (/\.jpg$/.test(galleryfiles[i])) {%>
         <a href='http://yiyantay.me:80/uploads/<%= location%>/<%= galleryfiles[i]%>' data-gallery>
           <img src="http://yiyantay.me:80/uploads/<%= location%>/<%= galleryfiles[i]%>"  class="img-small">
         </a>
