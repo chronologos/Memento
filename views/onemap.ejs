@@ -1,82 +1,63 @@
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type='text/JavaScript' src='http://www.onemap.sg/API/JS?accessKEY=42J5MyqRfJPhKLbyO4wyO0WJkTtkUl46ncv2vRFgqajad+lcaA1tHJKGSdkvAq5bXwu7s8StDUvPirk1qrn2psYUJNQtkUuW|mv73ZvjFcSo=&v=3.10&type=full'></script>
 <script language="JavaScript" type="text/JavaScript">
-    var OneMap = new GetOneMap('divMain', 'sm');
+var OneMap = new GetOneMap('divMain', 'sm');
 
-    function Overlay() {
-        var kmlPath = document.getElementById('kmlPath').value;
-        OneMap.overlayKML(kmlPath);
+function Overlay() {
+  var kmlPath = document.getElementById('kmlPath').value;
+  OneMap.overlayKML(kmlPath);
 
-    }
+}
 
-    function clearGraphicsFromMap() {
-        OneMap.clearGraphics()
-    }
+function clearGraphicsFromMap() {
+  OneMap.clearGraphics()
+}
 
 </script>
-  <ul id="multicol-menu" class="nav pull-right">
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">MultiCol Menu <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-            <li>
-                <div class="row" style="width: 400px;">
-                    <ul class="list-unstyled col-md-4 col1">
-
-
-                    </ul>
-                    <ul class="list-unstyled col-md-4 col2">
-
-                    </ul>
-                    <ul class="list-unstyled col3">
-
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </li>
-</ul>
-    <table>
-        <tr>
-            <td colspan="2" class="header">
-                Overlay KML API Usage
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Specify KML :
-            </td>
-            <td>
-                <input type="text" id="kmlPath" value="http://www.onemap.sg/uploadedcsvkml/sample.kml"
-                    style="width: 398px" />
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" align="right">
-                <input id="Button2" type="button" value="Overlay KML" onclick="Overlay();" />
-                <input id="btnclearGraphics" type="button" value="Clear Graphics" onclick="JavaScript:clearGraphicsFromMap()" />
-            </td>
-        </tr>
-    </table>
-    <div id="divMain" style='width: 1000px; height: 1000px;'>
-    </div>
+<div class="container">
+  <table>
+    <tr>
+      <td colspan="2" class="header">
+        Overlay KML API Usage
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Specify KML :
+      </td>
+      <td>
+        <input type="text" id="kmlPath" value="http://www.onemap.sg/uploadedcsvkml/sample.kml"
+        style="width: 398px" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="right">
+        <input id="Button2" type="button" value="Overlay KML" onclick="Overlay();" />
+        <input id="btnclearGraphics" type="button" value="Clear Graphics" onclick="JavaScript:clearGraphicsFromMap()" />
+      </td>
+    </tr>
+  </table>
+  <div id="divMain" style='width: 1000px; height: 1000px;'>
+  </div>
+</div>
 <script type="text/javascript">
 $(document).ready(function () {
-            var textFile = "http://yiyantay.me/historicsites.txt";
-            jQuery.get(textFile, function (textFileData) {
-                var EachLineInTextFile = textFileData.responseText.split("\n");
-                for (var i = 0, len = EachLineInTextFile.length; i < len; i++) {
-                  if (i<35){
-                    $(EachLineInTextFile[i]).insertAfter( ".col1" );
-                  } else if (i<70){
-                    $(EachLineInTextFile[i]).insertAfter( ".col2" );
-                  } else {
-                    $(EachLineInTextFile[i]).insertAfter( ".col3" );
-                  }
-                }
-            })
-        });
+  var textFile = "http://yiyantay.me/historicsites.txt";
+  jQuery.get(textFile, function (textFileData) {
+    var EachLineInTextFile = textFileData.responseText.split("\n");
+    for (var i = 0, len = EachLineInTextFile.length; i < len; i++) {
+      if (i<35){
+        $(EachLineInTextFile[i]).insertAfter( ".col1" );
+      } else if (i<70){
+        $(EachLineInTextFile[i]).insertAfter( ".col2" );
+      } else {
+        $(EachLineInTextFile[i]).insertAfter( ".col3" );
+      }
+    }
+  })
+});
 </script>
