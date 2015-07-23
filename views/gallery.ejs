@@ -1,11 +1,6 @@
 <!-- For image gallery -->
 <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
 <link rel="stylesheet" href="http://yiyantay.me:80/styles/bootstrap-image-gallery.css">
-<script language="JavaScript" type="text/JavaScript">
-String.prototype.endsWith = function(suffix) {
-  return this.indexOf(suffix, this.length - suffix.length) !== -1;
-};
-</script>
 <div class="container">
   <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
   <div id="blueimp-gallery" class="blueimp-gallery">
@@ -43,7 +38,7 @@ String.prototype.endsWith = function(suffix) {
   </div>
   <div id="links">
     <% for(var i=0; i<galleryfiles.length; i++) {%>
-      <% if (galleryfiles[i].endsWith(".jpg")) {%>
+      <% if (endsWith(galleryfiles[i],".jpg")) {%>
         <a href='http://yiyantay.me:80/uploads/<%= location%>/<%= galleryfiles[i]%>' data-gallery>
           <img src="http://yiyantay.me:80/uploads/<%= location%>/<%= galleryfiles[i]%>"  class="img-small">
         </a>
