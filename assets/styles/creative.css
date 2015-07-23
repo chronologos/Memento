@@ -475,6 +475,9 @@ body {
     webkit-tap-highlight-color: #222;
 }
 
-.top-buffer {
-    margin-top: 20px;
+.top-buffer100 {
+    margin-top: 100px;
+}
+.top-buffer20 {
+    margin-top: 10px;
 }

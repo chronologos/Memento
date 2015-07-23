@@ -6,7 +6,8 @@
  */
 
 module.exports = {
-	connection: 'mongodbserver',
+	// connection: 'mongodbserver',
+	connection: 'localDiskDb',
 	attributes: {
 		location: {
 			type: 'string'
@@ -18,4 +19,3 @@ module.exports = {
 		}
 	}
 };
-
