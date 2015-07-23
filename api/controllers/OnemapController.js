@@ -7,6 +7,7 @@
 
 module.exports = {
 	view: function (req, res) {
+		res.locals.layout = 'layoutonemap'; //change layout for visible navbar
 		return res.view('onemap');
 	}
 };

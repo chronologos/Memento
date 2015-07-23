@@ -1,12 +1,12 @@
 /**
- * grunt/pipeline.js
- *
- * The order in which your css, javascript, and template files should be
- * compiled and linked from your views and static HTML files.
- *
- * (Note that you can take advantage of Grunt-style wildcard/glob/splat expressions
- * for matching multiple files.)
- */
+* grunt/pipeline.js
+*
+* The order in which your css, javascript, and template files should be
+* compiled and linked from your views and static HTML files.
+*
+* (Note that you can take advantage of Grunt-style wildcard/glob/splat expressions
+* for matching multiple files.)
+*/
 
 
 
@@ -15,10 +15,10 @@
 // (if you're using LESS with the built-in default config, you'll want
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
-   'styles/bootstrap.css',
-   'styles/animate.min.css', 
-   'styles/creative.css',
-   'styles/*.css'
+  'styles/bootstrap.css',
+  'styles/animate.min.css',
+  'styles/creative.css',
+  'styles/*.css'
 ];
 
 
@@ -39,6 +39,7 @@ var jsFilesToInject = [
   'js/jquery.easing.min.js',
   'js/jquery.fittext.js',
   'js/wow.min.js',
+  'js/classie.js',
   'js/*.js'
 ];
 
