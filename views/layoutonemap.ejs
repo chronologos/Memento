@@ -28,9 +28,169 @@
   -->
 
   <script src="/js/jquery.js"></script>
-  <script type='text/JavaScript' src='http://www.onemap.sg/API/JS?accessKEY=42J5MyqRfJPhKLbyO4wyO0WJkTtkUl46ncv2vRFgqajad+lcaA1tHJKGSdkvAq5bXwu7s8StDUvPirk1qrn2psYUJNQtkUuW|mv73ZvjFcSo=&v=3.10&type=full'></script>
+  <style>
+  html, body, #map-canvas {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
 
+  </style>
 
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <script>
+  var styles = [{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"on"},{"lightness":33}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2e5d4"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#c5dac6"}]},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":20}]},{"featureType":"road","elementType":"all","stylers":[{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#c5c6c6"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#e4d7c6"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#fbfaf7"}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"on"},{"color":"#acbcc9"}]}]
+  var points = [
+    ['istana', 1.305187, 103.843012, 11, 'http://yiyantay.me/gallery/view?location=istana'],
+    ['Jawaharlal Nehru',1.28682933371992,103.851465675776,11],
+    ['Jose Rizal',1.28711333243961,103.852313675316,11],
+    ['Keppel Harbour',1.26315933276919,103.821111675817,11],
+    ['Lower Barracks',1.28203233376782,103.8411956755,11],
+    ['Phoenix Park',1.29774833249231,103.816785675877,11],
+    ['Seletar Airfield',1.40247389677649,103.871378674636,11],
+    ['Upper Barracks',1.28464433217021,103.841788675589,11],
+    ['Withdrawal to Singapore',1.44885533328324,103.771404675883,11],
+    ['JurongKranji Defence Line',1.3530807692473,103.717025671406,11],
+    ['Punggol Beach Massacre',1.42143333349069,103.910630675777,11],
+    ['Singapore Armed Forces Warrant Officers and Specialists Club',1.29446029536193,103.85522524094,11],
+    ['Johore Battery',1.365214332209,103.97949367509,11],
+    ['Merdeka Bridge',1.30366754795495,103.867419385566,11],
+    ['Silat Road Sikh Temple',1.27718333357745,103.832561676055,11],
+    ['The First Public Dental School and Public Clinic',1.27947372235055,103.837974675624,11],
+    ['Chen Wen Hsi',1.31926733311821,103.804528674569,11],
+    ['Joseph Conrad',1.28630127002166,103.852759609397,11],
+    ['Central Sikh Temple',1.3001818960995,103.853876761845,11],
+    ['Methodist Girls School',1.30205633272522,103.850168529252,11],
+    ['St Margarets School',1.30408133349052,103.846269675166,11],
+    ['Kallang Gasworks',1.30628433282491,103.866985675043,11],
+    ['Raffles Place',1.28409133248688,103.851400675892,11],
+    ['Institute of Mental Health',1.38160633303922,103.884551674954,11],
+    ['The Gate of Hope',1.29583233211705,103.851893675406,11],
+    ['United Engineers Limited',1.29301733350876,103.843107674697,11],
+    ['Block A of Phoenix Park',1.2984273321945,103.815580675776,11],
+    ['Execution of Captured Rimau Commandos',1.30889133274855,103.772893674755,11],
+    ['Force 136',1.34155633298955,103.831333674484,11],
+    ['Fort Canning Command Centre',1.2958363322861,103.846396674678,11],
+    ['Ho Chi Minh',1.28675133250752,103.851929675151,11],
+    ['Victoria Memorial Hall',1.28833333334501,103.851814675181,11],
+    ['Indian National Army Memorial',1.28933124556414,103.853713613533,11],
+    ['Queen Elizabeth Walk',1.28897733291705,103.853641674419,11],
+    ['Japanese Propaganda Department',1.29911033362599,103.847560676126,11],
+    ['Chui Eng Free School',1.28310433212104,103.848351675303,11],
+    ['Pondok Peranakan Gelam Club',1.2816081235607,103.846054573493,11],
+    ['Middle Road Church',1.29971133212332,103.852198674302,11],
+    ['The Founding of Boys Brigade in Singapore',1.30166633176102,103.85121252968,11],
+    ['Syonan Jinja',1.3355552613357,103.81820666995,11],
+    ['Ee Hoe Hean Club',1.27958633379174,103.840377675132,11],
+    ['Sentosa Beach',1.25266333343877,103.83733067587,11],
+    ['Gan Eng Seng School',1.28996924925057,103.823714643627,11],
+    ['Raffles Institution',1.29383933354881,103.85239667505,11],
+    ['Farrer Park',1.31235133254062,103.852482676004,11],
+    ['Singapore Chin Kang Huay Kuan',1.27926733302136,103.840558748485,11],
+    ['Kandang Kerbau Hospital',1.30710820445912,103.849073385287,11],
+    ['Alexandra Hospital',1.286003029053,103.802312948121,11],
+    ['Sri Senpaga Vinayagar Temple',1.30568833283151,103.902634676077,11],
+    ['Republic of Singapore Yacht Club',1.29276933305057,103.762703676106,11],
+    ['Yeung Ching School',1.28156020114142,103.846258412111,11],
+    ['Custom House Maxwell Road',1.27712733209143,103.846699675813,11],
+    ['Deng Xiaoping',1.28672533235625,103.851634675197,11],
+    ['AngloChinese School',1.28013633265223,103.846646675836,11],
+    ['Upper Seletar Reservoir',1.40091533214855,103.806656674538,11],
+    ['Lower Peirce Reservoir',1.37041933223266,103.826132674871,11],
+    ['MacRitchie Reservoir',1.34197633318954,103.832462675362,11],
+    ['United Overseas Bank',1.28535176923787,103.850365675594,11],
+    ['Sime Road Camp',1.33564126640076,103.818206669424,11],
+    ['Kallang Airport',1.30873233314136,103.872768675836,11],
+    ['Havelock Road Camp  River Valley Road Camp',1.29327413260663,103.826665675235,11],
+    ['Clifford Pier',1.28395233268405,103.853194675172,11],
+    ['Singapore Badminton Hall',1.31013033299721,103.881754674408,11],
+    ['Katong Park',1.29685059555647,103.886118778852,11],
+    ['Jalan Besar Stadium',1.31017233323422,103.859576676003,11],
+    ['Omar Kampong Melaka Mosque',1.28798833232799,103.844012674751,11],
+    ['Bukit Timah Battle',1.34869020509818,103.777021670283,11],
+    ['Raffles Girls School',1.29497889677266,103.849929673905,11],
+    ['Singapore Chinese Girls School',1.30253733296696,103.839066675364,11],
+    ['Sakya Muni Buddha Gaya Temple',1.31472225327072,103.856856585655,11],
+    ['Fuk Tak Chi',1.28295603108818,103.848896676078,11],
+    ['Adam Park Battle',1.32896933299539,103.814149531534,11],
+    ['OverseaChinese Banking Corporation',1.2853352526842,103.8491286018,11],
+    ['Queenstown',1.30011746107599,103.798010619269,11],
+    ['Sri Krishnan Temple',1.30047833289153,103.852909675396,11],
+    ['Pulau Sejahat',1.39160133234127,103.990557674993,11],
+    ['Kwan Im Thong Hood Cho Temple',1.30073033243297,103.853010675617,11],
+    ['Outram Road Prison',1.28164951575319,103.838931260104,11],
+    ['Batu Berlayar',1.26240933215904,103.805248675316,11],
+    ['Tan Tock Seng Hospital',1.3209375206906,103.844882559431,11],
+    ['Geylang Serai',1.31658633363981,103.898340748193,11],
+    ['Changi Murals',1.36240733211262,103.974010674667,11],
+    ['Sarimbun Beach Landing',1.43678933346705,103.699253674954,11],
+    ['Kranji Beach Battle',1.43918133249957,103.737989675418,11],
+    ['Pasir Panjang Battle',1.28358433889182,103.790811091483,11],
+    ['Labrador Battery',1.26698333222699,103.801796675702,11],
+    ['Bukit Batok Memorials',1.35092033240728,103.76678567536,11],
+    ['Sook Ching Inspection Centre',1.28383433253496,103.846072675678,11],
+    ['Kempeitai East District Branch',1.29745133312463,103.848534675161,11],
+    ['Changi Beach Massacre',1.39168233345834,103.990405674686,11],
+    ['Trinity Theological College',1.30119407904067,103.846674968219,11],
+    ['Pearls Hill School',1.28667033307705,103.841739675866,11],
+    ['Beach Road Police Station',1.29710802126474,103.85740323619,11],
+    ['Peoples Defence Force Camp',1.29604803754864,103.856284866538,11],
+    ['Sime Road MachineGun Pillbox',1.34034433312584,103.811493674596,11],
+    ['Pasir Panjang MachineGun Pillbox',1.28881133375504,103.778099676123,11],
+    ['National Theatre',1.29348233361017,103.844596674947,11],
+    ['Singapore Polytechnic',1.27426133215055,103.848260675896,11],
+    ['United Chinese Library',1.29455833313819,103.849455674433,11],
+    ['Balestier Plain',1.31827145943279,103.854958674289,11]
+  ];
+  function setMarkers(map, locations) {
+    var shape = {
+      coord: [1, 1, 1, 20, 18, 20, 18 , 1],
+      type: 'poly'
+    };
+    for (var i = 0; i < locations.length; i++)
+    {
+      // var flag = new google.maps.MarkerImage('markers/' + (i + 1) + '.png',
+      // new google.maps.Size(17, 19),
+      // new google.maps.Point(0,0),
+      // new google.maps.Point(0, 19));
+      var place = locations[i];
+      var myLatLng = new google.maps.LatLng(place[1], place[2]);
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        // icon: flag,
+        shape: shape,
+        title: place[0],
+        zIndex: place[3],
+        url: place[4]
+      });
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map, marker);
+        window.location.href = this.url;
+
+      });
+
+    }
+  }
+  function initialize() {
+    var singapore = new google.maps.LatLng(1.357132, 103.803446);
+    var mapOptions = {
+      zoom: 11,
+      center: singapore
+    }
+
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    setMarkers(map, points);
+    // var ctaLayer = new google.maps.KmlLayer({
+    //   url: 'https://dl.dropboxusercontent.com/u/1184923/HISTORICSITES.kml'
+    // });
+    map.setOptions({styles: styles});
+    // ctaLayer.setMap(map);
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+  </script>
   <!--STYLES-->
   <link rel="stylesheet" href="/styles/bootstrap.css">
   <link rel="stylesheet" href="/styles/animate.min.css">
