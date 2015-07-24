@@ -1,21 +1,5 @@
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script type='text/JavaScript' src='http://www.onemap.sg/API/JS?accessKEY=42J5MyqRfJPhKLbyO4wyO0WJkTtkUl46ncv2vRFgqajad+lcaA1tHJKGSdkvAq5bXwu7s8StDUvPirk1qrn2psYUJNQtkUuW|mv73ZvjFcSo=&v=3.10&type=full'></script>
-<script language="JavaScript" type="text/JavaScript">
-var OneMap = new GetOneMap('divMain', 'sm');
 
-function Overlay() {
-  var kmlPath = "https://dl.dropboxusercontent.com/u/1184923/HISTORICSITES.kml"
-  // var kmlPath = document.getElementById('kmlPath').value;
-  // OneMap.overlayKML(kmlPath);
-
-}
-
-function clearGraphicsFromMap() {
-  OneMap.clearGraphics()
-}
-
-</script>
-<div class="container top-buffer100">
+<div class="container">
   <div class="well" style="width: 550px; position: absolute; left: 30%">
     <table>
       <tr>
@@ -44,23 +28,25 @@ function clearGraphicsFromMap() {
       </tr>
     </table>
   </div>
-  <div id="divMain" style='width: 1000px; height: 1000px;'>
+  <div id="divMain" style='width: 600px; height: 600px; position: absolute; top: 35%; left: 35%;'>
   </div>
 </div>
-<script type="text/javascript">
-$(document).ready(function () {
-  var textFile = "http://yiyantay.me/historicsites.txt";
-  jQuery.get(textFile, function (textFileData) {
-    var EachLineInTextFile = textFileData.responseText.split("\n");
-    for (var i = 0, len = EachLineInTextFile.length; i < len; i++) {
-      if (i<35){
-        $(EachLineInTextFile[i]).insertAfter( ".col1" );
-      } else if (i<70){
-        $(EachLineInTextFile[i]).insertAfter( ".col2" );
-      } else {
-        $(EachLineInTextFile[i]).insertAfter( ".col3" );
-      }
-    }
-  })
+<script language="JavaScript" type="text/JavaScript">
+var OneMap = new GetOneMap('divMain', 'sm');
+$(document).ready(function() {
+
+
+  function Overlay() {
+    var kmlPath = "/HISTORICSITES.kml"
+    // var kmlPath = document.getElementById('kmlPath').value;
+    OneMap.overlayKML(kmlPath);
+  }
+
+  function clearGraphicsFromMap() {
+    OneMap.clearGraphics()
+  }
+
+  Overlay();
+
 });
 </script>
