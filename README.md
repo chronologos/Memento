@@ -1,16 +1,17 @@
 # Memento(Production)
 
-A [Sails](http://sailsjs.org) application. User can upload photo through website (should not ultimately in the product) and through iOS app (another repository). Photos are displayed in realtime (pseudo-realtime actually since I have not actually discovered how to make a page automatically refresh. 
+A [Sails](http://sailsjs.org) application. User can upload photo through website (should not ultimately in the product) and through iOS app (another repository). Photos are displayed in realtime (pseudo-realtime actually since I have not actually discovered how to make a page automatically refresh.
 
 ## API Documentation
-For uploading do a POST request to: `http://yiyantay.me/upload/upld` 
-key1=photo, value1 = file to be uploaded
-key2=location, value2 = location of photo, as a string
+For uploading do a POST request to: `http://yiyantay.me/upload/upld`
+key1=location, value1 = location of photo, as a string
+key2=photo, value2 = file to be uploaded
+ordering of kv pairs is impt.
 
 For viewing a specific gallery do a GET request to `http://yiyantay.me/gallery/view` with key1=location, value2 = location of beacon as a string. For example `http://yiyantay.me/gallery/view?location=istana`
 
 For adding a database entry do a POST request to 'http://yiyantay.me/users/create'.  
-key1=location, value1 = location, as specified previously 
+key1=location, value1 = location, as specified previously
 key2=UUID value2  = some kind of unique ID for a phone
 
 
@@ -23,10 +24,10 @@ key2=UUID value2  = some kind of unique ID for a phone
 4. Enable SSL
 5. Fix how js and css don't work when minified and concatenated.
 
-## Team 
-1. Ian Tay (Website, Server), 
-2. Clement Lee (iOS - app), 
-3. Zac Lim (iOS - BLE beacon), 
+## Team
+1. Ian Tay (Website, Server),
+2. Clement Lee (iOS - app),
+3. Zac Lim (iOS - BLE beacon),
 4. Gerald Tan (Product Design)
 
 ## Server Setup

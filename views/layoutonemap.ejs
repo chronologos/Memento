@@ -41,7 +41,7 @@
   <script>
   var styles = [{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"on"},{"lightness":33}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2e5d4"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#c5dac6"}]},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":20}]},{"featureType":"road","elementType":"all","stylers":[{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#c5c6c6"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#e4d7c6"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#fbfaf7"}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"on"},{"color":"#acbcc9"}]}]
   var points = [
-    ['istana', 1.305187, 103.843012, 11, 'http://yiyantay.me/gallery/view?location=istana'],
+    ['ITE College Central', 1.377641, 103.856574, 11, 'http://yiyantay.me/gallery/view?location=itecollegecentral'],
     ['Jawaharlal Nehru',1.28682933371992,103.851465675776,11],
     ['Jose Rizal',1.28711333243961,103.852313675316,11],
     ['Keppel Harbour',1.26315933276919,103.821111675817,11],
@@ -165,7 +165,6 @@
         url: place[4]
       });
       google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map, marker);
         window.location.href = this.url;
 
       });
