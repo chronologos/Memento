@@ -1,0 +1,52 @@
+
+<div class="container">
+  <div class="well" style="width: 550px; position: absolute; left: 30%">
+    <table>
+      <tr>
+        <td colspan="2">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          Specify KML :
+        </td>
+        <td>
+          <input type="text" id="kmlPath" value="http://www.onemap.sg/uploadedcsvkml/sample.kml"
+          style="width: 398px" />
+        </td>
+      </tr>
+      <tr>
+
+        <td colspan="2" align="right">
+          <div class="top-buffer10">
+            <input id="Button2" type="button" class="btn btn-primary" value="Overlay KML" onclick="Overlay();" />
+            <input id="btnclearGraphics" type="button" class="btn btn-info" value="Clear Graphics" onclick="JavaScript:clearGraphicsFromMap()" />
+          </div>
+        </td>
+
+      </tr>
+    </table>
+  </div>
+  <div id="divMain" style='width: 600px; height: 600px; position: absolute; top: 35%; left: 35%;'>
+  </div>
+</div>
+<script language="JavaScript" type="text/JavaScript">
+var OneMap = new GetOneMap('divMain', 'sm');
+$(document).ready(function() {
+
+
+  function Overlay() {
+    var kmlPath = "/HISTORICSITES.kml"
+    // var kmlPath = document.getElementById('kmlPath').value;
+    OneMap.overlayKML(kmlPath);
+  }
+
+  function clearGraphicsFromMap() {
+    OneMap.clearGraphics()
+  }
+
+  Overlay();
+
+});
+</script>

@@ -1,17 +1,17 @@
 /**
- * UploadController
- *
- * @description :: Server-side logic for managing Uploads
- * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
- */
+* UploadController
+*
+* @description :: Server-side logic for managing Uploads
+* @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
+*/
 
 module.exports = {
 
 
 
 	/**
-	 * `UploadController.upld()`
-	 */
+	* `UploadController.upld()`
+	*/
 	upld: function (req, res) {
 		var params = req.params.all();
 		console.log(params);
@@ -22,17 +22,20 @@ module.exports = {
 				if (err){
 					return res.serverError(err);
 				}
+				sails.models.users.create({location:this_location}).exec(function createCB(err, created){
+					console.log('Created user with location ' + created.location);
+				});
 				return res.view('homepage',{
 
 					// not working, need implementation of flash messages
 
 					message: files.length + ' file(s) uploaded successfully!',
-				       files: files
+					files: files
 				}
-				);
-			});
-		}else{
-			console.log('not string')
-		}
+			);
+		});
+	}else{
+		console.log('not string')
 	}
+}
 };
