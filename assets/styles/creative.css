@@ -36,7 +36,7 @@ a:focus {
     color: #eb3812;
 }
 
-h1,
+nav,
 h2,
 h3,
 h4,
@@ -52,12 +52,12 @@ p {
 }
 
 .bg-primary {
-    background-color: #f05f40;
+    background-color: #f05f40 !important;
 }
 
 .bg-dark {
-    color: #fff;
-    background-color: #222;
+    color: #fff !important;
+    background-color: #222 !important;
 }
 
 .text-faded {

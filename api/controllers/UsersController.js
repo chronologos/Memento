@@ -22,13 +22,13 @@ module.exports = {
 
       for (var i =0; i<someModel.length; i++){
         var result = JSON.stringify(someModel[i].createdAt);
-        console.log(result);
+        // console.log(result);
         // console.log(typeof(result));
         var myRegExp = /[T]([\d][\d])/g;   //match time (hour)
         var match = myRegExp.exec(result); //match time (hour)
         var returnthis = parseInt(match[0].substring(1,3)); //cut off leading 'T' in time (hour)
-        console.log(returnthis);
-        console.log(someModel[i].location);
+        // console.log(returnthis);
+        // console.log(someModel[i].location);
 
         var returnthiscorrectd = returnthis+8; //time given is GMT need to +8
         if (returnthiscorrectd >23){

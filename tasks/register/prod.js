@@ -2,7 +2,8 @@ module.exports = function (grunt) {
 	grunt.registerTask('prod', [
 		'compileAssets',
 		'sails-linker:devJs',
-		'sails-linker:devStyles',
+		//'sails-linker:prodJs',
+		'sails-linker:prodStyles',
 		'sails-linker:devTpl',
 		'sails-linker:prodJsJade',
 		'sails-linker:prodStylesJade',
