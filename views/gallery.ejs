@@ -1,11 +1,3 @@
-<!-- For image gallery -->
-<div class="container">
-
-  <h2><%=locationinfo[0]%></h2>
-  <p>  <%=locationinfo[2]%></p>
-</div>
-
-
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
 <div id="blueimp-gallery" class="blueimp-gallery">
   <!-- The container for the modal slides -->
@@ -40,7 +32,7 @@
     </div>
   </div>
 </div>
-<div id="links" style="margin: 20px 225px 20px 225px;">
+<div id="links">
   <% for(var i=0; i<galleryfiles.length; i++) {%>
     <% if (/\.jpg$/.test(galleryfiles[i]) || /\.JPG$/.test(galleryfiles[i]) ) {%>
       <a href='http://yiyantay.me:80/uploads/<%= location%>/<%= galleryfiles[i]%>' data-gallery>

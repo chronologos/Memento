@@ -13,3 +13,19 @@ var chart = c3.generate({
   //   }
   // }
 });
+
+var chart2 = c3.generate({
+  bindto: '#chart2',
+  data: {
+    columns: [],
+    type: 'bar'
+  }
+  // axis: {
+  //   x: {
+  //     type: 'timeseries',
+  //     tick: {
+  //       format: '%Y-%m-%d'
+  //     }
+  //   }
+  // }
+});
