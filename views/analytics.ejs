@@ -1,15 +1,17 @@
 
-
+<h2>Visits versus time</h2>
 <div id="chart" class="container" style="position:absolute;top:100px;left:20px"></div>
 <script type="text/javascript">
-var data1 = "Istana";
+var data1 = "Sri Mariamman Temple";
 var data2 = "ITE College Central";
+var data3 = "Gardens by the Bay";
+var data4 = "Kranji War Memorial";
 
 $( document ).ready(function(){
   setTimeout(function () {
     chart.load({
       columns: [
-        [<%=myData%>], [<%=myData2%>]      ]
+        [<%=myData%>], [<%=myData2%>], [<%=myData3%>], [<%=myData4%>]      ]
     });
   }, 1000);
 });

@@ -1,0 +1,70 @@
+body {
+  background: #3f3f3f url(wood-bg.png);
+  font-family: Helvetica, Arial, Sans-Serif;
+}
+
+h1 {
+  font-size: 50px; text-transform: uppercase; color: #717171;
+  text-shadow: 0 3px 3px #333; margin: 50px 0 0 0; text-align: center;
+}
+#browser {
+  margin: 0 auto; text-align: center;
+  text-shadow: 0 3px 3px #333;
+}
+#browser em {
+  font: italic 26px Georgia, Serif; color: #666;
+}
+
+#transformers-rule {
+  width: 750px; position: relative; margin: 50px auto;
+}
+
+.containerm {
+  width: 800px; height: 600px;
+  -webkit-perspective: 1000;
+}
+
+.card {
+  width: 800px; height: 600px;
+  border: 8px solid #fff;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+}
+.containerm:hover .card {
+  -webkit-transform: rotateY(180deg);
+}
+
+.face {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+}
+
+
+.megatron {
+  float: left; position: absolute; top: 30px; left: 20px;
+}
+.megatron .front {
+
+}
+.megatron .back {
+  width: 800px; height: 600px;
+  -webkit-transform: rotateY(180deg);
+  background: #a3a3a3;
+}
+.megatron .back h2 {
+  width: 800; height: 20px; margin: 40px auto 40px auto;
+}
+.megatron img {
+  float: right;
+}
+.megatron p {
+  float: left; width: 500px; height:580px; margin: 20px 80px 20px 80px;
+  font-size: 17px; line-height: 28px;
+}
+
+.front {
+  z-index: 10;
+}
+.containerm:hover .front {
+  z-index: 0;
+}
