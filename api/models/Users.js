@@ -6,8 +6,8 @@
 */
 
 module.exports = {
-	connection: 'mongodbserver',
-	//connection: 'localDiskDb',
+	//connection: 'mongodbserver',
+	connection: 'localDiskDb',
 	attributes: {
 		location: {
 			type: 'string'
