@@ -28,15 +28,12 @@
   -->
 
 
-  <link rel="stylesheet" href="/styles/bootstrap.css">
-  <link rel="stylesheet" href="/styles/animate.min.css">
-  <link rel="stylesheet" href="/styles/creative.css">
-  <link rel="stylesheet" href="/styles/font-awesome.css">
-  <link rel="stylesheet" href="/styles/importer.css">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
-
   <link rel="stylesheet" href="/bootstrap-image-gallery.css">
   <link rel="stylesheet" href="/demo.css">
+  <link rel="stylesheet" href="/thumbnail.css">
+
 </head>
 
 <body id="page-top">
@@ -140,11 +137,22 @@
   <script src="/js/dependencies/sails.io.js"></script>
   <script src="/js/jquery.js"></script>
   <script src="/js/bootstrap.min.js"></script>
-  <script src="/js/creative.js"></script>
   <script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
   <script src="/bootstrap-image-gallery.js"></script>
-  <script src="/demo.js"></script>
-
+  <script>
+  document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+    link = target.src ? target.parentNode : target,
+    options = {index: link, event: event},
+    links = this.getElementsByTagName('a'),
+    fullscreenOptions = {
+      // Defines if the gallery should open in fullscreen mode:
+      fullScreen: true
+    };
+    blueimp.Gallery(links, options);
+  };
+  </script>
 
 </body>
 </html>

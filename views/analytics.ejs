@@ -1,3 +1,16 @@
 
 
 <div id="chart" class="container"></div>
+<script type="text/javascript">
+var data1 = "data1";
+var data2 = "data2";
+
+$( document ).ready(function(){
+  setTimeout(function () {
+    chart.load({
+      columns: [
+        [<%=myData%>], [<%=myData2%>]      ]
+    });
+  }, 1000);
+});
+</script>
