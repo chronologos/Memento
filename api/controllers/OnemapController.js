@@ -9,5 +9,10 @@ module.exports = {
 	view: function (req, res) {
 		res.locals.layout = 'layoutonemap'; //change layout for visible navbar
 		return res.view('onemap');
+	},
+
+	viewalt: function (req, res) {
+		res.locals.layout = 'layoutonemapalt'; //change layout for visible navbar
+		return res.view('onemap');
 	}
 };

@@ -34,44 +34,46 @@
   <link rel="stylesheet" href="/styles/font-awesome.css">
   <link rel="stylesheet" href="/styles/importer.css">
   <!--STYLES END-->
+  <link rel="stylesheet" href="/search.css">
+
 </head>
 
 <body id="page-top">
 
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" style="background-color: rgb(105, 95, 96)">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand page-scroll" href="/#page-top">Memento</a>
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand page-scroll" href="/#page-top">Memento</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+
+          <li>
+            <a href="/onemap/view">Map</a>
+          </li>
+
+          <li>
+            <a href="/users/retrieve">Analytics</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="/#upload">Upload/Search</a>
+          </li>
+
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-
-        <li>
-          <a href="/onemap/view">Map</a>
-        </li>
-
-        <li>
-          <a href="/users/retrieve">Analytics</a>
-        </li>
-        <li>
-          <a class="page-scroll" href="/#upload">Upload</a>
-        </li>
-
-      </ul>
-    </div>
-    <!-- /.navbar-collapse -->
-  </div>
-  <!-- /.container-fluid -->
-</nav>
+    <!-- /.container-fluid -->
+  </nav>
   <%- body %>
 
 
@@ -137,6 +139,15 @@
   <script src="/js/creative.js"></script>
   <!--SCRIPTS END-->
   <script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+  <script>
+  $("#inpt_search").on('focus', function () {
+    $(this).parent('label').addClass('active');
+  });
 
+  $("#inpt_search").on('blur', function () {
+    if($(this).val().length == 0)
+    $(this).parent('label').removeClass('active');
+  });
+  </script>
 </body>
 </html>
