@@ -38,6 +38,7 @@
   </style>
 
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <script type="text/javascript" src="/markerclusterer_compiled.js"></script>
   <script>
   var styles = [{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"on"},{"lightness":33}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2e5d4"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#c5dac6"}]},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":20}]},{"featureType":"road","elementType":"all","stylers":[{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#c5c6c6"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#e4d7c6"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#fbfaf7"}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"on"},{"color":"#acbcc9"}]}]
   var points = [
@@ -141,9 +142,12 @@
     ['Singapore Polytechnic',1.27426133215055,103.848260675896,11],
     ['United Chinese Library',1.29455833313819,103.849455674433,11],
     ['Balestier Plain',1.31827145943279,103.854958674289,11],
-    ['Gardens by the Bay',1.281633,103.863913,"http://renhaotan.com"]
+    ['Gardens by the Bay',1.281633,103.863913,11,"http://yiyantay.me/gallery/view?location=gardens"],
+    ['Kranji War Memorial', 1.418842, 103.757534,11, "http://yiyantay.me/gallery/view?location=kranji"],
+    ['Sri Mariamman Temple',1.282631, 103.845346,11,"http://yiyantay.me/gallery/view?location=sri"]
+
   ];
-  function setMarkers(map, locations) {
+  function setMarkers(markerarray, map, locations) {
     var shape = {
       coord: [1, 1, 1, 20, 18, 20, 18 , 1],
       type: 'poly'
@@ -169,7 +173,7 @@
         window.location.href = this.url;
 
       });
-
+      markerarray.push(marker);
     }
   }
   function initialize() {
@@ -180,7 +184,10 @@
     }
 
     var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    setMarkers(map, points);
+    var markerarray = [];
+
+    setMarkers(markerarray, map, points);
+    var mc = new MarkerClusterer(map, markerarray);
     // var ctaLayer = new google.maps.KmlLayer({
     //   url: 'https://dl.dropboxusercontent.com/u/1184923/HISTORICSITES.kml'
     // });
@@ -220,23 +227,13 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle dropdown-translucent" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gallery <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="/gallery/view?location=istana">Istana</a></li>
-              <li><a href="#">Another place</a></li>
-              <li><a href="#">Some other place</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="/gallery/view?location=">Everything Else</a></li>
-            </ul>
+
+          <li>
+            <a href="/onemap/view">Map</a>
           </li>
 
           <li>
-            <a href="/onemap/view">OneMap</a>
-          </li>
-
-          <li>
-            <a href="/">iOS App</a>
+            <a href="/users/retrieve">Analytics</a>
           </li>
           <li>
             <a class="page-scroll" href="/#upload">Upload</a>

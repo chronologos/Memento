@@ -6,8 +6,4 @@
 */
 
 module.exports = {
-	view: function(req,res){
-		res.locals.layout = 'layoutanalytics'; //change layout so that it works on iOS
-		return res.view('analytics');
-	},
 };
