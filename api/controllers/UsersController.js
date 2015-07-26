@@ -38,7 +38,7 @@ module.exports = {
         var re = /([\d][\d])T/g;
         var m = re.exec(result)
         var returnthis=parseInt(m[0]);
-        console.log(returnthis);
+        //console.log(returnthis);
 
 
         if (someModel[i].location == "sri"){
