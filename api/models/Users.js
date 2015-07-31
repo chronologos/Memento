@@ -7,7 +7,7 @@
 
 module.exports = {
 	connection: 'mongodbserver',
-	// connection: 'localDiskDb',
+	// connection: 'elocalDiskDb',
 	attributes: {
 		location: {
 			type: 'string'
